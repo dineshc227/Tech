@@ -227,65 +227,64 @@ nav a:hover::after {
     transform: scale(1.05);
 }
 .placement-section {
-    padding: 50px 0;
-    background-color: #f8f8f8;
-    overflow: hidden;
-}
+            padding: 50px 0;
+            background-color: #f8f8f8;
+            overflow: hidden;
+        }
 
-.placement-content {
-    text-align: center;
-    margin-bottom: 40px;
-}
+        .placement-content {
+            text-align: center;
+            margin-bottom: 40px;
+        }
 
-.placement-content h2 {
-    font-size: 2.5rem;
-    color: #333;
-}
+        .placement-content h2 {
+            font-size: 2.5rem;
+            color: #333;
+        }
 
-.placement-content h2 span {
-    color: #007bff;
-}
+        .placement-content h2 span {
+            color: #007bff;
+        }
 
-.placement-content p {
-    font-size: 1.2rem;
-    color: #666;
-    margin-top: 10px;
-}
+        .placement-content p {
+            font-size: 1.2rem;
+            color: #666;
+            margin-top: 10px;
+        }
 
-.logo-container {
-    width: 100%;
-    overflow: hidden;
-}
+        .logo-container {
+            width: 100%;
+            overflow: hidden;
+        }
 
-.logos {
-    display: flex;
-    animation: scroll-left 20s linear infinite;
-    width: max-content; /* Ensures the container is wide enough for all logos */
-}
+        .logos {
+            display: flex;
+            animation: scroll-left 20s linear infinite;
+            width: max-content;
+        }
 
-.logo {
-    flex: 0 0 auto;
-    margin: 0 20px;
-}
+        .logo {
+            flex: 0 0 auto;
+            margin: 0 20px;
+        }
 
-.logo img {
-    height: 60px;
-    object-fit: contain;
-}
+        .logo img {
+            height: 60px;
+            object-fit: contain;
+        }
 
-@keyframes scroll-left {
-    0% {
-        transform: translateX(0);
-    }
-    100% {
-        transform: translateX(-50%); /* Moves half the width to create seamless loop */
-    }
-}
+        @keyframes scroll-left {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
 
-/* Pause animation on hover */
-.logos:hover {
-    animation-play-state: paused;
-}
+        .logos:hover {
+            animation-play-state: paused;
+        }
 
 /* Footer */
 footer {
