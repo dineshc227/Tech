@@ -1,0 +1,229 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #f4f7fc;
+    overflow-x: hidden;
+}
+
+/* Header */
+header {
+    position: sticky;
+    top: 0;
+    background: linear-gradient(90deg, #1a73e8, #7b21a4);
+    color: white;
+    padding: 15px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+header .logo {
+    font-size: 1.8em;
+    font-weight: 700;
+}
+
+header nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 20px;
+    font-size: 1.1em;
+    transition: color 0.3s;
+}
+
+header nav a:hover {
+    color: #ffd700;
+}
+
+header .cta {
+    background-color: #ff6f61;
+    padding: 10px 20px;
+    border-radius: 25px;
+    text-decoration: none;
+    color: white;
+    font-weight: 600;
+    transition: transform 0.3s;
+}
+
+header .cta:hover {
+    transform: scale(1.05);
+}
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    background: linear-gradient(45deg, #1a73e8, #7b21a4);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(255,255,255,0.2), transparent);
+    animation: gradientMove 15s infinite;
+}
+
+@keyframes gradientMove {
+    0% { transform: translateX(0); }
+    50% { transform: translateX(20%); }
+    100% { transform: translateX(0); }
+}
+
+.hero h1 {
+    font-size: 3em;
+    margin-bottom: 20px;
+    animation: fadeInUp 1s ease-out;
+}
+
+.hero p {
+    font-size: 1.3em;
+    margin-bottom: 30px;
+    max-width: 600px;
+    animation: fadeInUp 1.2s ease-out;
+}
+
+.hero .cta {
+    background-color: #ff6f61;
+    padding: 15px 30px;
+    border-radius: 30px;
+    text-decoration: none;
+    color: white;
+    font-size: 1.2em;
+    font-weight: 600;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.hero .cta:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Course Section */
+.courses {
+    padding: 60px 40px;
+    text-align: center;
+    background-color: #fff;
+}
+
+.courses h2 {
+    font-size: 2.5em;
+    margin-bottom: 40px;
+    color: #1a73e8;
+}
+
+.course-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.course-card {
+    background: #f4f7fc;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+}
+
+.course-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.course-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.course-card .content {
+    padding: 20px;
+}
+
+.course-card h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.course-card p {
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.course-card button {
+    background-color: #1a73e8;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.3s;
+}
+
+.course-card button:hover {
+    background-color: #1557b0;
+}
+
+/* Footer */
+footer {
+    background: linear-gradient(90deg, #1a73e8, #7b21a4);
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+footer p {
+    font-size: 1em;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2.5em;
+    }
+
+    .hero p {
+        font-size: 1em;
+    }
+
+    header {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    header nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    header nav a {
+        margin: 5px 10px;
+    }
+}
