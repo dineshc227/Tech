@@ -226,6 +226,66 @@ nav a:hover::after {
 .content button:hover {
     transform: scale(1.05);
 }
+.placement-section {
+    padding: 50px 0;
+    background-color: #f8f8f8;
+    overflow: hidden;
+}
+
+.placement-content {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.placement-content h2 {
+    font-size: 2.5rem;
+    color: #333;
+}
+
+.placement-content h2 span {
+    color: #007bff;
+}
+
+.placement-content p {
+    font-size: 1.2rem;
+    color: #666;
+    margin-top: 10px;
+}
+
+.logo-container {
+    width: 100%;
+    overflow: hidden;
+}
+
+.logos {
+    display: flex;
+    animation: scroll-left 20s linear infinite;
+    width: max-content; /* Ensures the container is wide enough for all logos */
+}
+
+.logo {
+    flex: 0 0 auto;
+    margin: 0 20px;
+}
+
+.logo img {
+    height: 60px;
+    object-fit: contain;
+}
+
+@keyframes scroll-left {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%); /* Moves half the width to create seamless loop */
+    }
+}
+
+/* Pause animation on hover */
+.logos:hover {
+    animation-play-state: paused;
+}
 
 /* Footer */
 footer {
