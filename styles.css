@@ -313,7 +313,7 @@ nav a:hover::after {
   background: #25d366;
   color: #ffffff;
   text-decoration: none;
-  border-radius: 50%;
+  border-radius: 25px;
   width: 179px;
   height: 47px;
   display: flex;
@@ -331,6 +331,42 @@ nav a:hover::after {
   transform: translateY(-5px);
   box-shadow: 0 8px 20px rgba(37, 211, 102, 0.7);
 }
+.whatsapp-group-btn {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    padding: 10px 20px;
+    background: #25d366; /* WhatsApp green */
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 25px; /* Oval shape */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    font-weight: 600;
+    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: popIn 1.6s ease-out 0.2s; /* Delayed animation */
+    z-index: 1000;
+    white-space: nowrap;
+}
+
+.whatsapp-group-btn::before {
+    content: "👥"; /* Emoji for group */
+    margin-right: -7px;
+    font-size: 1rem;
+}
+
+.whatsapp-group-btn span {
+    margin-left: 5px; /* Space between icon and text */
+}
+
+.whatsapp-group-btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(37, 211, 102, 0.6);
+}
+
 
 footer {
   text-align: center;
@@ -378,13 +414,13 @@ footer {
   .courses {
     padding: clamp(30px, 6vw, 50px) clamp(15px, 4vw, 20px);
   }
-  .whatsapp-btn {
+  .whatsapp-btn, .whatsapp-group-btn {
     width: 110px;
     height: 25px;
     font-size: 1rem;
   }
 
-  .whatsapp-btn::after {
+  .whatsapp-btn::after, .whatsapp-group-btn::before {
     font-size: 1.2rem;
   }
 }
@@ -424,15 +460,15 @@ footer {
   .content {
     padding: clamp(10px, 3vw, 15px);
   }
-  .whatsapp-btn {
-    width: 148px;
+  .whatsapp-btn, .whatsapp-group-btn {
+    width: 170px;
     height: 35px;
     bottom: 15px;
     right: 20px;
     font-size: 0.9rem;
   }
 
-  .whatsapp-btn::after {
+  .whatsapp-btn::after, .whatsapp-group-btn::before {
     font-size: 1rem;
   }
 }
