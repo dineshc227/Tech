@@ -10,6 +10,7 @@ body {
     background: linear-gradient(135deg, #1e3c72, #2a5298);
     color: #ffffff;
     overflow-x: hidden;
+    min-height: 100vh;
 }
 
 /* Header Styling */
@@ -17,7 +18,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 50px;
+    padding: 2vw 5vw;
     background: rgba(0, 0, 0, 0.7);
     backdrop-filter: blur(10px);
     position: fixed;
@@ -26,18 +27,23 @@ header {
 }
 
 .logo {
-    font-size: 1.8rem;
+    font-size: clamp(1.4rem, 4vw, 1.8rem);
     font-weight: 700;
     color: #00ff88;
     text-transform: uppercase;
     letter-spacing: 2px;
 }
 
+nav {
+    display: flex;
+    align-items: center;
+}
+
 nav a {
     color: #ffffff;
     text-decoration: none;
-    margin: 0 20px;
-    font-size: 1.1rem;
+    margin: 0 clamp(10px, 2vw, 20px);
+    font-size: clamp(0.9rem, 2.5vw, 1.1rem);
     position: relative;
     transition: color 0.3s ease;
 }
@@ -64,11 +70,13 @@ nav a:hover::after {
 .cta {
     background: #00ff88;
     color: #1e3c72;
-    padding: 10px 20px;
+    padding: clamp(8px, 2vw, 10px) clamp(15px, 3vw, 20px);
     border-radius: 25px;
     text-decoration: none;
     font-weight: 600;
+    font-size: clamp(0.9rem, 2.5vw, 1rem);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    white-space: nowrap;
 }
 
 .cta:hover {
@@ -78,13 +86,13 @@ nav a:hover::after {
 
 /* Hero Section */
 .hero {
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding: 0 20px;
+    padding: 0 clamp(15px, 5vw, 20px);
     position: relative;
     overflow: hidden;
 }
@@ -107,21 +115,21 @@ nav a:hover::after {
 }
 
 .hero h1 {
-    font-size: 3.5rem;
-    margin-bottom: 20px;
+    font-size: clamp(2rem, 6vw, 3.5rem);
+    margin-bottom: clamp(15px, 3vw, 20px);
     animation: fadeInUp 1s ease-out;
 }
 
 .hero p {
-    font-size: 1.3rem;
-    margin-bottom: 30px;
-    max-width: 600px;
+    font-size: clamp(1rem, 3vw, 1.3rem);
+    margin-bottom: clamp(20px, 4vw, 30px);
+    max-width: 90%;
     animation: fadeInUp 1.2s ease-out;
 }
 
 .hero .cta {
-    font-size: 1.2rem;
-    padding: 15px 30px;
+    font-size: clamp(1rem, 3vw, 1.2rem);
+    padding: clamp(10px, 3vw, 15px) clamp(20px, 5vw, 30px);
     animation: fadeInUp 1.4s ease-out;
 }
 
@@ -139,21 +147,21 @@ nav a:hover::after {
 
 /* Courses Section */
 .courses {
-    padding: 80px 50px;
+    padding: clamp(40px, 8vw, 80px) clamp(20px, 5vw, 50px);
     background: rgba(255, 255, 255, 0.05);
 }
 
 .courses h2 {
     text-align: center;
-    font-size: 2.5rem;
-    margin-bottom: 50px;
+    font-size: clamp(1.8rem, 5vw, 2.5rem);
+    margin-bottom: clamp(30px, 6vw, 50px);
     color: #00ff88;
 }
 
 .course-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(clamp(250px, 45vw, 300px), 1fr));
+    gap: clamp(20px, 4vw, 30px);
     max-width: 1200px;
     margin: 0 auto;
 }
@@ -188,28 +196,29 @@ nav a:hover::after {
 }
 
 .content {
-    padding: 20px;
+    padding: clamp(15px, 4vw, 20px);
     text-align: center;
 }
 
 .content h3 {
-    font-size: 1.8rem;
-    margin-bottom: 10px;
+    font-size: clamp(1.4rem, 4vw, 1.8rem);
+    margin-bottom: clamp(8px, 2vw, 10px);
     color: #00ff88;
 }
 
 .content p {
-    font-size: 1rem;
-    margin-bottom: 20px;
+    font-size: clamp(0.9rem, 2.5vw, 1rem);
+    margin-bottom: clamp(15px, 3vw, 20px);
 }
 
 .content button {
     background: #00ff88;
     border: none;
-    padding: 10px 20px;
+    padding: clamp(8px, 2vw, 10px) clamp(15px, 3vw, 20px);
     border-radius: 25px;
     color: #1e3c72;
     font-weight: 600;
+    font-size: clamp(0.9rem, 2.5vw, 1rem);
     cursor: pointer;
     transition: transform 0.3s ease;
 }
@@ -221,35 +230,76 @@ nav a:hover::after {
 /* Footer */
 footer {
     text-align: center;
-    padding: 20px;
+    padding: clamp(15px, 3vw, 20px);
     background: rgba(0, 0, 0, 0.8);
-    font-size: 0.9rem;
+    font-size: clamp(0.8rem, 2vw, 0.9rem);
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
     header {
         flex-direction: column;
-        padding: 20px;
+        padding: clamp(15px, 4vw, 20px);
     }
 
     nav {
-        margin: 20px 0;
+        margin: clamp(15px, 3vw, 20px) 0;
+        flex-wrap: wrap;
+        justify-content: center;
     }
 
     nav a {
-        margin: 0 10px;
+        margin: clamp(5px, 1.5vw, 10px);
+        font-size: clamp(0.8rem, 2.5vw, 1rem);
     }
 
     .hero h1 {
-        font-size: 2.5rem;
+        font-size: clamp(1.8rem, 6vw, 2.5rem);
     }
 
     .hero p {
-        font-size: 1.1rem;
+        font-size: clamp(0.9rem, 3vw, 1.1rem);
+        max-width: 95%;
     }
 
     .courses {
-        padding: 50px 20px;
+        padding: clamp(30px, 6vw, 50px) clamp(15px, 4vw, 20px);
+    }
+}
+
+@media (max-width: 420px) {
+    .logo {
+        font-size: clamp(1.2rem, 4vw, 1.5rem);
+    }
+
+    .cta {
+        padding: clamp(6px, 2vw, 8px) clamp(10px, 3vw, 15px);
+        font-size: clamp(0.8rem, 2.5vw, 0.9rem);
+    }
+
+    .hero {
+        padding: 0 clamp(10px, 3vw, 15px);
+    }
+
+    .hero h1 {
+        font-size: clamp(1.5rem, 5vw, 2rem);
+    }
+
+    .hero .cta {
+        padding: clamp(8px, 2.5vw, 10px) clamp(15px, 4vw, 20px);
+        font-size: clamp(0.9rem, 2.5vw, 1rem);
+    }
+
+    .courses h2 {
+        font-size: clamp(1.5rem, 4.5vw, 2rem);
+    }
+
+    .course-grid {
+        grid-template-columns: 1fr;
+        gap: clamp(15px, 3vw, 20px);
+    }
+
+    .content {
+        padding: clamp(10px, 3vw, 15px);
     }
 }
