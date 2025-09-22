@@ -18,13 +18,15 @@
             <a href="about.html">About</a>
             <a href="#contact">Contact</a>
         </nav>
-        <a href="#join" class="cta">Join Now</a>
+
     </header>
 
     <section class="hero">
         <h1>Master Site Reliability Engineer with Tech Enthusiastic</h1>
         <p>Unlock your potential with our industry-leading courses in Site Reliability Engineer and more.</p>
-        <a href="#Contact Us" class="cta">Start Learning Today</a>
+        <nav>
+            <a href="#contact" class="cta">Start Learning Today</a>
+        </nav>
     </section>
 
     <section class="courses" id="courses">
@@ -34,14 +36,18 @@
                 <div class="content">
                     <h3>Site Reliability Engineer</h3>
                     <p>Learn to build modern applications support, infrastructure support and more</p>
-                    <button onclick="showEnrollAlert('Full Stack Development')">Contact us</button>
+                    <nav>
+                        <a href="#contact" class="cta">Contact Us</a>
+                    </nav>
                 </div>
             </div>
             <div class="course-card">
                 <div class="content">
                     <h3>Devops</h3>
                     <p>AWS (EC2, VPC, IAM, Lambda, S3, CI/CD), Terraform and more</p>
-                    <button onclick="showEnrollAlert('Devops Course')">Contact us</button>
+                    <nav>
+                        <a href="#contact" class="cta">Contact Us</a>
+                    </nav>
                 </div>
             </div>
             <div class="course-card">
@@ -49,7 +55,9 @@
                     <h3>Application support Engineer</h3>
                     <p>Unix/Linux, SQL Database, Monitoring Tools, Vulnerability management, ITIL Frameworks, Windows
                         server Admin, Ticketing Tools, Cloud Computing (AWS), KUBERNETES</p>
-                    <button onclick="showEnrollAlert('Devops Course')">Contact us</button>
+                    <nav>
+                        <a href="#contact" class="cta">Contact Us</a>
+                    </nav>
                 </div>
             </div>
         </div>
@@ -82,6 +90,26 @@
 
             </div>
         </div>
+    </section>
+
+    <section id="contact" class="contact-section">
+        <h2>Get in Touch</h2>
+        <p>Ready to start your training? Fill out the form below for enrollment details.</p>
+        <form action="https://formspree.io/f/mgvnwlbd" method="POST">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+            </div>
+            <button type="submit" class="cta">Submit</button>
+        </form>
     </section>
     <a href="https://wa.me/+919160720350?text=Hello,%20I%20have%20a%20question%20about%20your%20training%20programs"
         class="whatsapp-btn" target="_blank">Chat with Us</a>

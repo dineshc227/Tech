@@ -1,14 +1,6 @@
-// Smooth scroll for navigation
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-            behavior: 'smooth'
-        });
-    });
-});
-
-// Enroll alert
-function showEnrollAlert(course) {
-    alert(`You have enrolled in ${course}!`);
-}
+// Smooth scroll function for Contact Us buttons
+        function scrollToContact() {
+            document.querySelector('#contact').scrollIntoView({ 
+                behavior: 'smooth' 
+            });
+        }
