@@ -1,8 +1,8 @@
 body {
     margin: 0;
     font-family: 'Poppins', sans-serif;
-    background: linear-gradient(135deg, #1a1a3d, #4a90e2, #ff6f61);
-    color: #ffffff;
+    background:white;
+    color: black;
     min-height: 100vh;
     overflow-x: hidden;
     position: relative;
@@ -15,12 +15,11 @@ body::before {
     left: 0;
     width: 100%;
     height: 100%;
-    background: radial-gradient(circle at 20% 20%, rgba(255, 111, 97, 0.1), transparent 50%);
     z-index: 0;
 }
 
 header {
-    background: rgba(26, 26, 61, 0.9);
+    background: purple;
     padding: 15px 20px;
     position: sticky;
     top: 0;
@@ -34,7 +33,7 @@ nav {
 }
 
 nav a {
-    color: #ff6f61;
+    color: white;
     text-decoration: none;
     font-size: 1.2rem;
     font-weight: 600;
@@ -42,7 +41,7 @@ nav a {
 }
 
 nav a:hover {
-    color: #ffffff;
+    color: white;
     transform: scale(1.1);
 }
 
@@ -58,19 +57,31 @@ main {
 
 h1 {
     font-size: 3rem;
-    color: #ff6f61;
+    color: black;
     margin-bottom: 25px;
-    text-shadow: 0 0 10px rgba(255, 111, 97, 0.5);
     animation: bounceIn 1s ease-out;
+}
+h3{
+    font-size: 1.9rem;
+}
+strong {
+    color: black;
+}
+.founder-size { 
+    font-size: 2.2rem;
+color:#00008B
+    
 }
 
 p {
-    font-size: 1.2rem;
-    line-height: 1.8;
+   font-family: "Times New Roman", Times, serif;
+    font-size: 1.4rem;
+    line-height: 1.5;
     margin-bottom: 25px;
     opacity: 0.95;
     animation: slideIn 1.2s ease-out;
 }
+
 
 ul {
     list-style: none;
@@ -89,7 +100,7 @@ li {
     border-radius: 15px;
     border: 1px solid rgba(255, 111, 97, 0.3);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    width: 390px;
+    width: 500px;
     box-sizing: border-box;
 }
 
@@ -99,14 +110,17 @@ li:hover {
 }
 
 li strong {
-    color: #26e614;
+    color:black;
+}
+strong.founder-size {
+    font-size: 1.5rem;
 }
 .whatsapp-btn {
     position: fixed;
     bottom: 20px;
     right: 20px;
     padding: 12px 25px;
-    background: #25d366;
+    background: purple;
     color: #ffffff;
     text-decoration: none;
     border-radius: 25px;    
@@ -132,7 +146,7 @@ li strong {
     bottom: 20px;
     left: 20px;
     padding: 10px 20px;
-    background: #25d366; /* WhatsApp green */
+    background: purple; /* WhatsApp green */
     color: #ffffff;
     text-decoration: none;
     border-radius: 25px; /* Oval shape */
@@ -219,7 +233,7 @@ footer {
         font-size: 1.2rem;
     }
 
-@media (max-width: 420px) {
+@media (max-width: 450px) {
     h1 {
         font-size: 2rem;
     }
@@ -230,7 +244,7 @@ footer {
 
     li {
         font-size: 0.9rem;
-        width: 200px;
+        width: 300px;
         padding: 10px 15px;
     }
 

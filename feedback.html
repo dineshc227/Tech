@@ -1,209 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Feedback Showcase</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Poppins', sans-serif;
-            margin: 0;
-            padding: 0;
-            background: #ffffff; /* Changed to white background */
-            color: #333333; /* Darker text for contrast on white background */
-            position: relative;
-            overflow-x: hidden;
-        }
-        .wave-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23e0e0e0" fill-opacity="0.3" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,112C672,96,768,96,864,112C960,128,1056,160,1152,160C1248,160,1344,128,1392,112L1440,96L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"></path></svg>') no-repeat bottom;
-            z-index: -1;
-            animation: wave 10s infinite linear;
-        }
-        @keyframes wave {
-            0% { transform: translateX(0); }
-            50% { transform: translateX(-50px); }
-            100% { transform: translateX(0); }
-        }
-        .header {
-            text-align: center;
-            padding: 50px 20px;
-            background: rgba(0, 0, 0, 0.1); /* Lighter header background for white theme */
-            backdrop-filter: blur(8px);
-            margin-bottom: 40px;
-        }
-        .header img {
-            width: 200px;
-            height: auto;
-            border-radius: 20px;
-            border: 2px solid #00ddeb;
-            box-shadow: 0 0 15px rgba(0, 221, 235, 0.5);
-            margin-bottom: 15px;
-            transition: transform 0.3s ease;
-        }
-        .header img:hover {
-            transform: scale(1.1);
-        }
-        .header h1 {
-            font-size: 2.8em;
-            margin: 10px 0;
-            background: linear-gradient(45deg, #00ddeb, #ff2e63);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .header p {
-            font-size: 1.2em;
-            opacity: 0.85;
-            max-width: 600px;
-            margin: 0 auto;
-            color: #333333; /* Darker text for header paragraph */
-        }
-        .gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-            padding: 0 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        .gallery .card {
-            background: rgba(0, 0, 0, 0.05); /* Lighter card background for white theme */
-            border-radius: 12px;
-            overflow: hidden;
-            position: relative;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Adjusted shadow for lighter theme */
-            transition: box-shadow 0.3s ease;
-            cursor: pointer;
-        }
-        .gallery .card:hover {
-            box-shadow: 0 8px 20px rgba(0, 221, 235, 0.4);
-        }
-        .gallery img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
-        .card-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
-            padding: 15px;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            text-align: center;
-        }
-        .card:hover .card-overlay {
-            opacity: 1;
-        }
-        .card-overlay p {
-            margin: 0;
-            font-size: 1em;
-            color: #00ddeb;
-        }
-        .cta {
-            text-align: center;
-            padding: 40px 20px;
-        }
-        .cta a {
-            display: inline-block;
-            background: linear-gradient(45deg, #ff2e63, #00ddeb);
-            color: #fff;
-            padding: 15px 30px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-size: 1.2em;
-            font-weight: bold;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        .cta a:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0, 221, 235, 0.5);
-        }
-        /* Modal Styles */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.85);
-            z-index: 1000;
-            align-items: center;
-            justify-content: center;
-            animation: fadeIn 0.3s ease;
-        }
-        .modal-content {
-            position: relative;
-            max-width: 90%;
-            max-height: 90vh;
-            text-align: center;
-        }
-        .modal-content img {
-            max-width: 100%;
-            max-height: 80vh;
-            border-radius: 10px;
-            box-shadow: 0 0 20px rgba(0, 221, 235, 0.5);
-        }
-        .modal-content p {
-            margin: 10px 0;
-            font-size: 1.1em;
-            color: #00ddeb;
-        }
-        .modal-buttons {
-            margin-top: 15px;
-        }
-        .modal-buttons button {
-            background: linear-gradient(45deg, #ff2e63, #00ddeb);
-            color: #fff;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 25px;
-            font-size: 1.5em;
-            cursor: pointer;
-            margin: 0 10px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        .modal-buttons button:hover {
-            transform: scale(1.05);
-            box-shadow: 0 5px 15px rgba(0, 221, 235, 0.5);
-        }
-        @media (max-width: 600px) {
-            .gallery {
-                grid-template-columns: 1fr;
-            }
-            .header img {
-                width: 120px;
-            }
-            .header h1 {
-                font-size: 2em;
-            }
-            .header p {
-                font-size: 1em;
-            }
-            .modal-content img {
-                max-height: 70vh;
-            }
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-    </style>
+    <link rel="stylesheet" href="feedbackstyles.css">
 </head>
+
 <body>
     <div class="wave-bg"></div>
     <div class="header">
-        <a href="index.html"><img src="feedback/image.png" alt="Header Image" /></a>
+        <a href="index.html">
+            <h1>Tech Enthusiastic</h1>
+        </a>
         <h1>We Value Your Feedback</h1>
         <p>Explore our gallery and share your thoughts with us!</p>
     </div>
@@ -389,18 +200,251 @@
                 <p>Feedback</p>
             </div>
         </div>
+
         <div class="card" data-tilt data-tilt-max="10" data-tilt-speed="400" data-tilt-perspective="1000">
             <img src="feedback/IMG-20251007-WA0063.jpg" alt="Image 31" data-index="30" />
             <div class="card-overlay">
                 <p>Feedback</p>
             </div>
         </div>
-    </div>
+        <div class="card" data-tilt data-tilt-max="10" data-tilt-speed="400" data-tilt-perspective="1000">
+            <img src="feedback1/IMG-20251011-WA0092.jpg" alt="Image 32" data-index="31" />
+            <div class="card-overlay">
+                <p>Feedback</p>
+            </div>
+        </div>
+        <div class="card" data-tilt data-tilt-max="10" data-tilt-speed="400" data-tilt-perspective="1000">
+            <img src="feedback1/IMG-20251011-WA0093.jpg" alt="Image 2" data-index="1" />
+            <div class="card-overlay">
+                <p>Feedback</p>
+            </div>
+        </div>
+        <div class="card" data-tilt data-tilt-max="10" data-tilt-speed="400" data-tilt-perspective="1000">
+            <img src="feedback1/IMG-20251011-WA0094.jpg" alt="Image 3" data-index="2" />
+            <div class="card-overlay">
+                <p>Feedback</p>
+            </div>
+        </div>
+        <div class="card" data-tilt data-tilt-max="10" data-tilt-speed="400" data-tilt-perspective="1000">
+            <img src="feedback1/IMG-20251011-WA0095.jpg" alt="Image 4" data-index="3" />
+            <div class="card-overlay">
+                <p>Feedback</p>
+            </div>
+        </div>
+        <div class="card" data-tilt data-tilt-max="10" data-tilt-speed="400" data-tilt-perspective="1000">
+            <img src="feedback1/IMG-20251011-WA0096.jpg" alt="Image 5" data-index="4" />
+            <div class="card-overlay">
+                <p>Feedback</p>
+            </div>
+        </div>
+        <div class="card" data-tilt data-tilt-max="10" data-tilt-speed="400" data-tilt-perspective="1000">
+            <img src="feedback1/IMG-20251011-WA0097.jpg" alt="Image 6" data-index="5" />
+            <div class="card-overlay">
+                <p>Feedback</p>
+            </div>
+        </div>
+        <div class="card" data-tilt data-tilt-max="10" data-tilt-speed="400" data-tilt-perspective="1000">
+            <img src="feedback1/IMG-20251011-WA0098.jpg" alt="Image 7" data-index="6" />
+            <div class="card-overlay">
+                <p>Feedback</p>
+            </div>
+        </div>
+        <div class="card" data-tilt data-tilt-max="10" data-tilt-speed="400" data-tilt-perspective="1000">
+            <img src="feedback1/IMG-20251011-WA0099.jpg" alt="Image 8" data-index="7" />
+            <div class="card-overlay">
+                <p>Feedback</p>
+            </div>
+        </div>
+        <div class="card" data-tilt data-tilt-max="10" data-tilt-speed="400" data-tilt-perspective="1000">
+            <img src="feedback1/IMG-20251011-WA0101.jpg" alt="Image 10" data-index="9" />
+            <div class="card-overlay">
+                <p>Feedback</p>
+            </div>
+        </div>
+        <div class="card" data-tilt data-tilt-max="10" data-tilt-speed="400" data-tilt-perspective="1000">
+            <img src="feedback1/IMG-20251011-WA0102.jpg" alt="Image 11" data-index="10" />
+            <div class="card-overlay">
+                <p>Feedback</p>
+            </div>
+        </div>
+        <div class="card" data-tilt data-tilt-max="10" data-tilt-speed="400" data-tilt-perspective="1000">
+            <img src="feedback1/IMG-20251011-WA0103.jpg" alt="Image 12" data-index="11" />
+            <div class="card-overlay">
+                <p>Feedback</p>
+            </div>
+        </div>
+        <div class="card" data-tilt data-tilt-max="10" data-tilt-speed="400" data-tilt-perspective="1000">
+            <img src="feedback1/IMG-20251011-WA0104.jpg" alt="Image 13" data-index="12" />
+            <div class="card-overlay">
+                <p>Feedback</p>
+            </div>
+        </div>
+        <div class="card" data-tilt data-tilt-max="10" data-tilt-speed="400" data-tilt-perspective="1000">
+            <img src="feedback1/IMG-20251011-WA0105.jpg" alt="Image 14" data-index="13" />
+            <div class="card-overlay">
+                <p>Feedback</p>
+            </div>
+        </div>
+        <div class="card" data-tilt data-tilt-max="10" data-tilt-speed="400" data-tilt-perspective="1000">
+            <img src="feedback1/IMG-20251011-WA0106.jpg" alt="Image 15" data-index="14" />
+            <div class="card-overlay">
+                <p>Feedback</p>
+            </div>
+        </div>
+        <div class="card" data-tilt data-tilt-max="10" data-tilt-speed="400" data-tilt-perspective="1000">
+            <img src="feedback1/IMG-20251011-WA0107.jpg" alt="Image 16" data-index="15" />
+            <div class="card-overlay">
+                <p>Feedback</p>
+            </div>
+        </div>
+        <div class="card" data-tilt data-tilt-max="10" data-tilt-speed="400" data-tilt-perspective="1000">
+            <img src="feedback1/IMG-20251011-WA0108.jpg" alt="Image 17" data-index="16" />
+            <div class="card-overlay">
+                <p>Feedback</p>
+            </div>
+        </div>
+        <div class="card" data-tilt data-tilt-max="10" data-tilt-speed="400" data-tilt-perspective="1000">
+            <img src="feedback1/IMG-20251011-WA0109.jpg" alt="Image 18" data-index="17" />
+            <div class="card-overlay">
+                <p>Feedback</p>
+            </div>
+        </div>
+        <div class="card" data-tilt data-tilt-max="10" data-tilt-speed="400" data-tilt-perspective="1000">
+            <img src="feedback1/IMG-20251011-WA0110.jpg" alt="Image 19" data-index="18" />
+            <div class="card-overlay">
+                <p>Feedback</p>
+            </div>
+        </div>
 
-   <!-- <div class="cta">
-        <a href="mailto:feedback@yourdomain.com">Share Your Feedback</a>
+        <div class="card" data-tilt data-tilt-max="10" data-tilt-speed="400" data-tilt-perspective="1000">
+            <img src="feedback1/IMG-20251011-WA0112.jpg" alt="Image 21" data-index="20" />
+            <div class="card-overlay">
+                <p>Feedback</p>
+            </div>
+        </div>
+        <div class="card" data-tilt data-tilt-max="10" data-tilt-speed="400" data-tilt-perspective="1000">
+            <img src="feedback1/IMG-20251011-WA0113.jpg" alt="Image 22" data-index="21" />
+            <div class="card-overlay">
+                <p>Feedback</p>
+            </div>
+        </div>
+        <div class="card" data-tilt data-tilt-max="10" data-tilt-speed="400" data-tilt-perspective="1000">
+            <img src="feedback1/IMG-20251011-WA0114.jpg" alt="Image 23" data-index="22" />
+            <div class="card-overlay">
+                <p>Feedback</p>
+            </div>
+        </div>
+        <div class="card" data-tilt data-tilt-max="10" data-tilt-speed="400" data-tilt-perspective="1000">
+            <img src="feedback1/IMG-20251011-WA0115.jpg" alt="Image 24" data-index="23" />
+            <div class="card-overlay">
+                <p>Feedback</p>
+            </div>
+        </div>
+        <div class="card" data-tilt data-tilt-max="10" data-tilt-speed="400" data-tilt-perspective="1000">
+            <img src="feedback1/IMG-20251011-WA0116.jpg" alt="Image 25" data-index="24" />
+            <div class="card-overlay">
+                <p>Feedback</p>
+            </div>
+        </div>
+        <div class="card" data-tilt data-tilt-max="10" data-tilt-speed="400" data-tilt-perspective="1000">
+            <img src="feedback1/IMG-20251011-WA0117.jpg" alt="Image 26" data-index="25" />
+            <div class="card-overlay">
+                <p>Feedback</p>
+            </div>
+        </div>
+        <div class="card" data-tilt data-tilt-max="10" data-tilt-speed="400" data-tilt-perspective="1000">
+            <img src="feedback1/IMG-20251011-WA0118.jpg" alt="Image 27" data-index="26" />
+            <div class="card-overlay">
+                <p>Feedback</p>
+            </div>
+        </div>
+        <div class="card" data-tilt data-tilt-max="10" data-tilt-speed="400" data-tilt-perspective="1000">
+            <img src="feedback1/IMG-20251011-WA0119.jpg" alt="Image 28" data-index="27" />
+            <div class="card-overlay">
+                <p>Feedback</p>
+            </div>
+        </div>
+        <div class="card" data-tilt data-tilt-max="10" data-tilt-speed="400" data-tilt-perspective="1000">
+            <img src="feedback1/IMG-20251011-WA0120.jpg" alt="Image 29" data-index="28" />
+            <div class="card-overlay">
+                <p>Feedback</p>
+            </div>
+        </div>
+        <div class="card" data-tilt data-tilt-max="10" data-tilt-speed="400" data-tilt-perspective="1000">
+            <img src="feedback1/IMG-20251011-WA0121.jpg" alt="Image 30" data-index="29" />
+            <div class="card-overlay">
+                <p>Feedback</p>
+            </div>
+        </div>
+        <div class="card" data-tilt data-tilt-max="10" data-tilt-speed="400" data-tilt-perspective="1000">
+            <img src="feedback1/IMG-20251011-WA0122.jpg" alt="Image 31" data-index="30" />
+            <div class="card-overlay">
+                <p>Feedback</p>
+            </div>
+        </div>
+        <div class="card" data-tilt data-tilt-max="10" data-tilt-speed="400" data-tilt-perspective="1000">
+            <img src="feedback1/IMG-20251011-WA0123.jpg" alt="Image 32" data-index="31" />
+            <div class="card-overlay">
+                <p>Feedback</p>
+            </div>
+
+        </div>
+        <div class="card" data-tilt data-tilt-max="10" data-tilt-speed="400" data-tilt-perspective="1000">
+            <img src="feedback1/IMG-20251011-WA0124.jpg" alt="Image 33" data-index="32" />
+            <div class="card-overlay">
+                <p>Feedback</p>
+            </div>
+        </div>
+        <div class="card" data-tilt data-tilt-max="10" data-tilt-speed="400" data-tilt-perspective="1000">
+            <img src="feedback1/IMG-20251011-WA0125.jpg" alt="Image 34" data-index="33" />
+            <div class="card-overlay">
+                <p>Feedback</p>
+            </div>
+        </div>
+        <div class="card" data-tilt data-tilt-max="10" data-tilt-speed="400" data-tilt-perspective="1000">
+            <img src="feedback1/IMG-20251011-WA0126.jpg" alt="Image 35" data-index="34" />
+            <div class="card-overlay">
+                <p>Feedback</p>
+            </div>
+        </div>
+        
+        <div class="card" data-tilt data-tilt-max="10" data-tilt-speed="400" data-tilt-perspective="1000">
+            <img src="feedback1/IMG-20251011-WA0127.jpg" alt="Image 36" data-index="35" />
+            <div class="card-overlay">
+                <p>Feedback</p>
+            </div>
+        </div>
+        <div class="card" data-tilt data-tilt-max="10" data-tilt-speed="400" data-tilt-perspective="1000">
+            <img src="feedback1/IMG-20251011-WA0128.jpg" alt="Image 37" data-index="36" />
+            <div class="card-overlay">
+                <p>Feedback</p>
+            </div>
+        </div>
+        <div class="card" data-tilt data-tilt-max="10" data-tilt-speed="400" data-tilt-perspective="1000">
+            <img src="feedback1/IMG-20251011-WA0129.jpg" alt="Image 37" data-index="36" />
+            <div class="card-overlay">
+                <p>Feedback</p>
+            </div>
+        </div>
+        <div class="card" data-tilt data-tilt-max="10" data-tilt-speed="400" data-tilt-perspective="1000">
+            <img src="feedback1/IMG-20251011-WA0130.jpg" alt="Image 37" data-index="36" />
+            <div class="card-overlay">
+                <p>Feedback</p>
+            </div>
+        </div>
+        <div class="card" data-tilt data-tilt-max="10" data-tilt-speed="400" data-tilt-perspective="1000">
+            <img src="feedback1/IMG-20251011-WA0131.jpg" alt="Image 37" data-index="36" />
+            <div class="card-overlay">
+                <p>Feedback</p>
+            </div>
+        </div>
+        <div class="card" data-tilt data-tilt-max="10" data-tilt-speed="400" data-tilt-perspective="1000">
+            <img src="feedback1/IMG-20251011-WA0132.jpg" alt="Image 37" data-index="36" />
+            <div class="card-overlay">
+                <p>Feedback</p>
+            </div>
+        </div>
     </div>
--->
     <!-- Modal for Image Viewing -->
     <div class="modal" id="imageModal">
         <div class="modal-content">
@@ -481,4 +525,5 @@
         });
     </script>
 </body>
+
 </html>

@@ -7,7 +7,7 @@
 
 body {
   font-family: "Poppins", sans-serif;
-  background: linear-gradient(135deg, #1e3c72, #2a5298);
+  background: linear-gradient(135deg, #ffffffec);
   color: #ffffff;
   overflow-x: hidden;
   min-height: 100vh;
@@ -19,7 +19,7 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 2vw 5vw;
-  background: rgba(0, 0, 0, 0.7);
+  background:purple;
   backdrop-filter: blur(10px);
   position: fixed;
   width: 100%;
@@ -29,7 +29,7 @@ header {
 .logo {
   font-size: clamp(1.4rem, 4vw, 1.8rem);
   font-weight: 700;
-  color: #00ff88;
+  color:white;
   text-transform: uppercase;
   letter-spacing: 2px;
 }
@@ -68,8 +68,8 @@ nav a:hover::after {
 }
 
 .cta {
-  background: #00ff88;
-  color: #1e3c72;
+  background: purple;
+  color: white;
   padding: clamp(8px, 2vw, 10px) clamp(15px, 3vw, 20px);
   border-radius: 25px;
   text-decoration: none;
@@ -86,6 +86,7 @@ nav a:hover::after {
 
 /* Hero Section */
 .hero {
+  background-color: white;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -95,6 +96,7 @@ nav a:hover::after {
   padding: 0 clamp(15px, 5vw, 20px);
   position: relative;
   overflow: hidden;
+  color: black;
 }
 
 .hero::before {
@@ -161,14 +163,15 @@ nav a:hover::after {
 /* Courses Section */
 .courses {
   padding: clamp(40px, 8vw, 80px) clamp(20px, 5vw, 50px);
-  background: rgba(255, 255, 255, 0.05);
+  background: white;
+  color: black;
 }
 
 .courses h2 {
   text-align: center;
   font-size: clamp(1.8rem, 5vw, 2.5rem);
   margin-bottom: clamp(30px, 6vw, 50px);
-  color: #00ff88;
+  color: rgb(0, 51, 128);
 }
 
 .course-grid {
@@ -183,7 +186,6 @@ nav a:hover::after {
 }
 
 .course-card {
-  background: rgba(255, 255, 255, 0.1);
   border-radius: 15px;
   overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -223,7 +225,7 @@ nav a:hover::after {
 .content h3 {
   font-size: clamp(1.4rem, 4vw, 1.8rem);
   margin-bottom: clamp(8px, 2vw, 10px);
-  color: #00ff88;
+  color: darkblue;
 }
 
 .content p {
@@ -232,7 +234,7 @@ nav a:hover::after {
 }
 
 .content button {
-  background: #00ff88;
+  background: purple;
   border: none;
   padding: clamp(8px, 2vw, 10px) clamp(15px, 3vw, 20px);
   border-radius: 25px;
@@ -308,12 +310,12 @@ nav a:hover::after {
 
 /* Contact Section Styles */
 .contact-section {
+background: white;
     max-width: 600px;
     margin: 2rem auto;
     padding: 2rem;
-    background-color: #fff;
+    background-color: white;
     border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     font-family: 'Poppins', sans-serif;
 }
 
@@ -388,7 +390,7 @@ nav a:hover::after {
 }
 
 .contact-section .cta:hover {
-    background-color: #0f2440; /* Darker blue on hover */
+    background-color: white; /* Darker blue on hover */
 }
 
 /* Responsive adjustments */
@@ -403,7 +405,7 @@ nav a:hover::after {
   bottom: 20px;
   right: 20px;
   padding: 12px 25px;
-  background: #25d366;
+  background: purple;
   color: #ffffff;
   text-decoration: none;
   border-radius: 25px;
@@ -429,7 +431,7 @@ nav a:hover::after {
     bottom: 20px;
     left: 20px;
     padding: 10px 20px;
-    background: #25d366; /* WhatsApp green */
+    background:purple; /* WhatsApp green */
     color: #ffffff;
     text-decoration: none;
     border-radius: 25px; /* Oval shape */
